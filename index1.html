@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swiggy Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #fc8019;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.btn-outline {
+    border: 1px solid white;
+    padding: 6px 14px;
+    border-radius: 6px;
+}
+
+.btn-dark {
+    background: black;
+    padding: 6px 14px;
+    border-radius: 6px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #fc8019;
+    padding: 60px 40px 100px;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+/* Search */
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-box input {
+    width: 280px;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+/* Services */
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: -60px;
+    padding-bottom: 40px;
+}
+
+.card {
+    background: #f8f8f8;
+    width: 260px;
+    padding: 30px 20px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.card span {
+    color: #fc8019;
+    font-weight: bold;
+    font-size: 13px;
+}
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="navbar">
+    <div class="logo">Swiggy</div>
+    <nav>
+        <a href="#">Swiggy Corporate</a>
+        <a href="#">Partner with us</a>
+        <a href="#" class="btn-outline">Get the App</a>
+        <a href="#" class="btn-dark">Sign in</a>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>Order food & groceries.<br>Discover best restaurants. Swiggy it!</h1>
+
+    <div class="search-box">
+        <input type="text" placeholder="Enter your delivery location">
+        <input type="text" placeholder="Search for restaurant, item or more">
+    </div>
+</section>
+
+<!-- Services -->
+<section class="services">
+    <div class="card">
+        <h2>FOOD DELIVERY</h2>
+        <p>FROM RESTAURANTS</p>
+        <span>UP TO 60% OFF</span>
+    </div>
+
+    <div class="card">
+        <h2>INSTAMART</h2>
+        <p>INSTANT GROCERY</p>
+        <span>UP TO 60% OFF</span>
+    </div>
+
+    <div class="card">
+        <h2>DINEOUT</h2>
+        <p>EAT OUT & SAVE MORE</p>
+        <span>UP TO 50% OFF</span>
+    </div>
+</section>
+
+</body>
+</html>

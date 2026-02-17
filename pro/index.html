@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Swiggy Home</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #fc8019;
+  color: white;
+}
+
+/* Header */
+.header {
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  width: 120px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 14px;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.btn-dark {
+  background: #2b1e16;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 40px 20px 80px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+/* Search */
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.search-box input {
+  width: 320px;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  color: #333;
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-text h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.card-text p {
+  font-size: 13px;
+  color: #777;
+}
+
+.card-text span {
+  display: block;
+  margin-top: 10px;
+  color: #fc8019;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.card img {
+  width: 90px;
+}
+/* body {
+  background: #fff;
+} */
+
+/* Section */
+.food-section {
+  padding: 40px 60px;
+}
+
+/* Heading */
+.heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.heading-row h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.arrows span {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  text-align: center;
+  line-height: 35px;
+  font-size: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Food Grid */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  background-color: #fff;
+}
+
+/* Card */
+.food-card {
+  text-align: center;
+}
+
+.food-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.food-card img:hover {
+  transform: scale(1.1);
+}
+
+.food-card p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="logo">
+    <img src="../A/swiggy_logo.png">
+  </div>
+  <nav>
+    <a href="#">Swiggy Corporate</a>
+    <a href="#">Partner with us</a>
+    <button class="btn-outline">Get the App</button>
+    <button class="btn-dark">Sign in</button>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Order food & groceries. Discover<br>best restaurants. Swiggy it!</h1>
+
+  <!-- Search -->
+  <div class="search-box">
+    <input type="text" placeholder="Enter your delivery location">
+    <input type="text" placeholder="Search for restaurant, item or more">
+  </div>
+
+  <!-- Cards -->
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-text">
+        <h3>FOOD DELIVERY</h3>
+        <p>FROM RESTAURANTS</p>
+        <span>UPTO 60% OFF</span>
+      </div>
+      <img src="images/food.png" alt="Food">
+    </div>
+
+    <div class="card">
+      <div class="card-text">
+        <h3>INSTAMART</h3>
+        <p>INSTANT GROCERY</p>
+        <span>UPTO 60% OFF</span>
+      </div>
+      <img src="images/instamart.png" alt="Instamart">
+    </div>
+
+    <div class="card">
+      <div class="card-text">
+        <h3>DINEOUT</h3>
+        <p>EAT OUT & SAVE MORE</p>
+        <span>UPTO 50% OFF</span>
+      </div>
+      <img src="images/dineout.png" alt="Dineout">
+    </div>
+
+  </div>
+</section>
+<section class="food-section">
+
+  <div class="heading-row">
+    <h2>Order our best food options</h2>
+    <div class="arrows">
+      <span>&larr;</span>
+      <span>&rarr;</span>
+    </div>
+  </div>
+
+  <div class="food-grid">
+
+    <div class="food-card">
+      <img src="images/biryani.png">
+      <p>Biryani</p>
+    </div>
+
+    <div class="food-card">
+      <img src="images/cake.png">
+      <p>Cake</p>
+    </div>
+
+    <div class="food-card">
+      <img src="images/pizza.png">
+      <p>Pizza</p>
+    </div>
+
+    <div class="food-card">
+      <img src="images/paratha.png">
+      <p>Paratha</p>
+    </div>
+
+    <div class="food-card">
+      <img src="images/kebab.png">
+      <p>Kebab</p>
+    </div>
+
+    <div class="food-card">
+      <img src="images/burger.png">
+      <p>Burger</p>
+    </div>
+
+    <div class="food-card">
+      <img src="images/pastry.png">
+      <p>Pastry</p>
+    </div>
+
+    <div class="food-card">
+      <img src="images/pasta.png">
+      <p>Pasta</p>
+    </div>
+
+    <div class="food-card">
+      <img src="images/pavbhaji.png">
+      <p>Pav Bhaji</p>
+    </div>
+
+    <div class="food-card">
+      <img src="images/icecream.png">
+      <p>Ice Cream</p>
+    </div>
+
+    <div class="food-card">
+      <img src="images/chole.png">
+      <p>Chole Bhature</p>
+    </div>
+
+    <div class="food-card">
+      <img src="images/rasmalai.png">
+      <p>Rasmalai</p>
+    </div>
+
+  </div>
+</section>
+
+
+</body>
+</html>

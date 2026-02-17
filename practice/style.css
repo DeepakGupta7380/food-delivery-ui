@@ -453,3 +453,18 @@ body {
 .contact-form button:hover {
   background: #d63c4a;
 }
+
+/* .active span{
+  display: ;
+} */
+
+/* #see span{
+  display: none;
+} */
+
+
+@media (max-width: 768px){
+  .map, .contact-form{
+    height: 600px;
+  }
+}

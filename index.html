@@ -1,42 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .logo img{
-            height: 200px;
-            margin-left: 100px;
-            left: fixed;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           
+            padding: 20px 80px;
+            background: linear-gradient(to right, #ff4d4d, #ff6a00);
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 40px;
+           
+        }
+
+        .nav-center a {
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+        
+        }
+        .nav-right{
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .app-btn {
+            padding: 10px 20px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .signin-btn {
+            padding: 15px 30px;
+            background: #1c1c1c;
+            /* dark background */
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
             
         }
-        .menu a{
-            color: red;
-            font-size: 16px;
-            margin-right: 45px;
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+            background: linear-gradient(to right, #ff4d4d, #ff6a00);
+            color: white;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .search-wrapper {
             display: flex;
             justify-content: center;
+            align-items: center;
+            background: white;
+            width: 800px;
+            gap: 25px;
+            margin-top: 80px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .location-box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
             justify-items: center;
-            align-items: ;
-            justify-content: space-around;
-            justify-content: space-evenly;
-            
+            background: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            width: 300px;
+        }
+     .search-box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            width: 300px;
+        }
+        .location-box input, .search-box input{
+            border: none;
+            outline: none;
+            font-size: 15px;
+            width: 250px;
+        } 
+         .location-box{
+            border-right: 1px solid #ddd;
+        }
+        .location-box, .search-box{
+            flex: 1;
+            margin-right: 20px;
+           
+        } 
+         
+         
+
+        .search-wrapper input {
+            padding: 16px;
+            width: 300px;
+            border-radius: 12px;
+            border: none;
+            /* border: none;
+            outline: none;
+            font-size: 14px;
+            flex: 1;
+            background: transparent; */
+        }
+
+        .left-image {
+            position: absolute;
+            left: 0;
+            top: 120px;
+        }
+
+        .right-image {
+            position: absolute;
+            right: 0;
+            top: 120px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 0;
+            background: white;
+        }
+
+        .card {
+            width: 300px;
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            font-size: 20px;
+            color: #2b2b52;
+        }
+
+        .card p {
+            color: gray;
+            margin: 5px 0;
+        }
+
+        .card span {
+            color: #ff4d4d;
+            font-weight: bold;
         }
     </style>
 </head>
+
 <body>
-    <div class="page">
-        <header class="navbar">
-            <div class="logo">
-                <img src="../food-delivery-ui/swiggy.png" alt="Swiggy Logo"/>
+    <header class="navbar">
+
+        <div class="nav-left">
+            <img src="logo.png" class="logo">
+            <span>Swiggy</span>
+        </div>
+
+        <div class="nav-center">
+            <a href="#">Swiggy Corporate</a>
+            <a href="#">Partner with us</a>
+        </div>
+
+        <div class="nav-right">
+            <button class="app-btn">Get the App</button>
+            <button class="signin-btn">Sign in</button>
+        </div>
+
+    </header>
+    <section class="hero">
+
+        <h1>
+            Order food & groceries. Discover <br>
+            best restaurants. Swiggy it!
+        </h1>
+
+        <div class="search-wrapper">
+            <div class="location-box">
+                <input type="text" placeholder="Enter your delivery location">
             </div>
-            <nav class="menu">
-                <a href="#">Swiggy Corporate</a>
-                <!-- <a href="#">Partner with us</a> -->
-            </nav>
-            <div class="actions"></div>
-        </header>
-    </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="Search for restaurant, item or more">
+            </div>
+        </div>
+        <img src="left.png" class="left-image">
+        <img src="right.png" class="right-image">
+
+        <section class="services">
+
+            <div class="card">
+                <h2>FOOD DELIVERY</h2>
+                <p>FROM RESTAURANTS</p>
+                <span>UPTO 60% OFF</span>
+                <img src="food.png">
+            </div>
+
+            <div class="card">
+                <h2>INSTAMART</h2>
+                <p>INSTANT GROCERY</p>
+                <span>UPTO 60% OFF</span>
+                <img src="grocery.png">
+            </div>
+
+            <div class="card">
+                <h2>DINEOUT</h2>
+                <p>EAT OUT & SAVE MORE</p>
+                <span>UPTO 50% OFF</span>
+                <img src="dine.png">
+            </div>
+
+        </section>
+
+    </section>
 </body>
+
 </html>
