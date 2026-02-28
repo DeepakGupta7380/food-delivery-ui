@@ -329,6 +329,131 @@ textarea{
     flex-direction:column;
   }
 }
+/* Navbar */
+.navbar {
+  background: #fc8019;
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Search */
+.search-section {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.search-section input {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+.search-section button {
+  padding: 10px 15px;
+  border: none;
+  background: #fc8019;
+  color: white;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+/* Categories */
+.categories {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.categories button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: 1px solid #fc8019;
+  background: white;
+  color: #fc8019;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.categories button:hover {
+  background: #fc8019;
+  color: white;
+}
+
+/* Product Grid */
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 20px 40px;
+}
+
+.product-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.product-card h3 {
+  margin: 10px 0;
+}
+
+.price {
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+}
+
+.product-card button {
+  padding: 8px 15px;
+  background: #fc8019;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background: #e96b0c;
+}
+
+/* Responsive */
+@media(max-width:768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .search-section input {
+    width: 200px;
+  }
+}
 </style>
 </head>
 <body>
@@ -531,6 +656,85 @@ textarea{
   </div>
 
 </div>
+<!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">FoodMart</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Cart</a>
+      <a href="#">Wishlist</a>
+      <a href="#">Profile</a>
+    </nav>
+  </header>
+
+  <!-- Search Section -->
+  <section class="search-section">
+    <input type="text" placeholder="Search for dishes...">
+    <button>Search</button>
+  </section>
+
+  <!-- Category Filters -->
+  <section class="categories">
+    <button>All</button>
+    <button>Pizza</button>
+    <button>Burger</button>
+    <button>Biryani</button>
+    <button>Desserts</button>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="product-container">
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250" alt="">
+      <h3>Cheese Pizza</h3>
+      <p>Delicious cheesy pizza</p>
+      <div class="price">₹199</div>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250" alt="">
+      <h3>Veg Burger</h3>
+      <p>Crispy veg patty burger</p>
+      <div class="price">₹149</div>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250" alt="">
+      <h3>Chicken Biryani</h3>
+      <p>Hyderabadi special</p>
+      <div class="price">₹249</div>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250" alt="">
+      <h3>Chocolate Cake</h3>
+      <p>Fresh baked cake</p>
+      <div class="price">₹299</div>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250" alt="">
+      <h3>Paneer Tikka</h3>
+      <p>Spicy grilled paneer</p>
+      <div class="price">₹219</div>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250" alt="">
+      <h3>French Fries</h3>
+      <p>Crispy salted fries</p>
+      <div class="price">₹99</div>
+      <button>Add to Cart</button>
+    </div>
+
+  </section>
+
 
 
 </body>
