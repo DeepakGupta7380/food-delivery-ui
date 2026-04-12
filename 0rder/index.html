@@ -1,472 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Payment Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    body{
+      background: #f8f8f8;
+    }
+    .header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .logo{
+      font-size: 24px;
+      font-weight: bold;
+      color: #fc8019;
+    }
+    .secure{
+      color: #48c479;
+      font-weight: bold;
+    }
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: Arial, sans-serif;
-}
+    .payment-container{
+      display: flex;
+      gap: 40px;
+      padding: 50px 80px;
+    }
+    .payment-left{
+      flex: 2;
+    }
+    .card{
+      background:#fff;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .card h3{
+      margin-bottom: 15px;
+    }
+    .address p{
+      color: #555;
+      line-height: 1.6;
+    }
+    .method{
+      margin-bottom: 15px;
 
-body{
-  background:#f8f8f8;
-}
+    }
+    .method input{
+      margin-right: 10px;
+    }
+    .form-group{
+      margin-bottom: 15px;
+    }
 
-/* Header */
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 60px;
-  background:#fff;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
-}
+    .form-group label{
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
 
-.logo{
-  font-size:24px;
-  font-weight:bold;
-  color:#fc8019;
-}
+    .form-group input{
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
 
-.secure{
-  color:#48c479;
-  font-weight:bold;
-}
+    .summary{
+      flex:1;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      height:fit-content;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
 
-/* Layout */
-.payment-container{
-  display:flex;
-  gap:40px;
-  padding:50px 80px;
-}
+    .summary h2{
+      margin-bottom: 20px;
+    }
 
-/* Left Section */
-.payment-left{
-  flex:2;
-}
+    .summary-row{
+      display:flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      color: #555;
+    }
 
-/* Address */
-.card{
-  background:#fff;
-  padding:25px;
-  border-radius:12px;
-  margin-bottom:25px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
-}
+    .total{
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .pay-btn{
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      border: none;
+      background: #fc8019;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.card h3{
-  margin-bottom:15px;
-}
+    .pay-btn:hover{
+      background: #e56e0f;
+    }
 
-.address p{
-  color:#555;
-  line-height:1.6;
-}
+    /*responsive*/
+    @media(max-width:900){
+      .payment-container{
+        flex-direction: column;
+        padding: 30px;
+      }
+      .header{
+        padding: 15px 20px;
+      }
+    }
 
-/* Payment Methods */
-.method{
-  margin-bottom:15px;
-}
+    .header{
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .logo{
+      font-size: 24px;
+      font-weight: bold;
+      color: #fc8019;
+    }
 
-.method input{
-  margin-right:10px;
-}
+    .logout{
+      color: #fc8019;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-/* Card Form */
-.form-group{
-  margin-bottom:15px;
-}
+    .container{
+      padding:50px 80px;
+      display:flex;
+      gap: 40px;
+    }
 
-.form-group label{
-  display:block;
-  margin-bottom:5px;
-  font-size:14px;
-}
+    .left{
+      flex: 2;
+    }
 
-.form-group input{
-  width:100%;
-  padding:10px;
-  border:1px solid #ddd;
-  border-radius:6px;
-}
+    .card{
+      background: #fff;
+      padding:25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
 
-/* Right Summary */
-.summary{
-  flex:1;
-  background:#fff;
-  padding:30px;
-  border-radius:12px;
-  height:fit-content;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
-}
+    .card h3{
+      margin-bottom: 20px;
+    }
 
-.summary h2{
-  margin-bottom:20px;
-}
+    .profile-overview{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
-.summary-row{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:15px;
-  color:#555;
-}
+    .profile-overview img{
+      width: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .profile-name{
+      font-size: 20px;
+      font-weight: bold;
+    }
 
-.total{
-  font-weight:bold;
-  font-size:18px;
-}
+    .profile-email{
+      color: #555;
+    }
 
-.pay-btn{
-  width:100%;
-  padding:12px;
-  margin-top:20px;
-  border:none;
-  background:#fc8019;
-  color:#fff;
-  font-size:16px;
-  border-radius:6px;
-  cursor:pointer;
-  transition:0.3s;
-}
+    .info-row{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      color: #555
+    }
 
-.pay-btn:hover{
-  background:#e56e0f;
-}
+    .edit-btn{
+      background: #fc8019;
+      color: #fff;
+      border:none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-/* Responsive */
-@media(max-width:900px){
-  .payment-container{
-    flex-direction:column;
-    padding:30px;
-  }
+    .form-group{
+      margin-bottom: 15px;
+    }
 
-  .header{
-    padding:15px 20px;
-  }
-}
-/* Header */
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 60px;
-  background:#fff;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
-}
+    .form-group label{
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
 
-.logo{
-  font-size:24px;
-  font-weight:bold;
-  color:#fc8019;
-}
+    .form-group input{
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
 
-.logout{
-  color:#fc8019;
-  font-weight:bold;
-  cursor:pointer;
-}
+    .save-btn{
+      padding: 10px 20px;
+      background: #fc8019;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
 
-/* Container */
-.container{
-  padding:50px 80px;
-  display:flex;
-  gap:40px;
-}
+    .address-box{
+      border: 1px solid #eee;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
 
-/* Left Section */
-.left{
-  flex:2;
-}
-
-/* Card */
-.card{
-  background:#fff;
-  padding:25px;
-  border-radius:12px;
-  margin-bottom:25px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
-}
-
-.card h3{
-  margin-bottom:20px;
-}
-
-/* Profile Overview */
-.profile-overview{
-  display:flex;
-  align-items:center;
-  gap:20px;
-}
-
-.profile-overview img{
-  width:80px;
-  height:80px;
-  border-radius:50%;
-  object-fit:cover;
-}
-
-.profile-name{
-  font-size:20px;
-  font-weight:bold;
-}
-
-.profile-email{
-  color:#555;
-}
-
-/* Info Rows */
-.info-row{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:12px;
-  color:#555;
-}
-
-.edit-btn{
-  background:#fc8019;
-  color:#fff;
-  border:none;
-  padding:6px 12px;
-  border-radius:5px;
-  cursor:pointer;
-}
-
-/* Form */
-.form-group{
-  margin-bottom:15px;
-}
-
-.form-group label{
-  display:block;
-  margin-bottom:5px;
-  font-size:14px;
-}
-
-.form-group input{
-  width:100%;
-  padding:10px;
-  border:1px solid #ddd;
-  border-radius:6px;
-}
-
-.save-btn{
-  padding:10px 20px;
-  background:#fc8019;
-  color:#fff;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-/* Address */
-.address-box{
-  border:1px solid #eee;
-  padding:15px;
-  border-radius:8px;
-  margin-bottom:15px;
-}
-
-/* Responsive */
-@media(max-width:900px){
-  .container{
-    flex-direction:column;
-    padding:30px;
-  }
-
-  .header{
-    padding:15px 20px;
-  }
-}
-</style>
+    /*Responsive*/
+    @media(max-width:900px){
+      .container{
+        flex-direction: column;
+        padding:30px;
+      }
+      .header{
+        padding: 15px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!--Header-->
+  <div class="header">
+    <div class="logo">Swiggy</div>
+    <div class="secure">100% Secure Payment</div>
+  </div>
 
-<!-- Header -->
-<div class="header">
-  <div class="logo">Swiggy</div>
-  <div class="secure">🔒 100% Secure Payment</div>
-</div>
+  <div class="payment-container">
 
-<div class="payment-container">
+    <!--Left Section-->
+    <div class="payment-left">
 
-  <!-- Left Section -->
-  <div class="payment-left">
-
-    <!-- Address -->
-    <div class="card address">
-      <h3>Delivery Address</h3>
-      <p>
-        Deepak Gupta<br>
-        Baluahi dhus maharajganj UP<br>
-        Uttar Pradesh - 273302<br>
-        Phone: 9628105699
-      </p>
-    </div>
-
-    <!-- Payment Methods -->
-    <div class="card">
-      <h3>Select Payment Method</h3>
-
-      <div class="method">
-        <input type="radio" name="payment" checked> UPI
+      <!--Address-->
+      <div class="card address">
+        <h3>Delivery Address</h3>
+        <p>
+          Deepak Gupta<br>
+          Baluahi dhus mathaniya maharajganj UP<br>Pin code 273302<br>Phone: 9628105699
+        </p>
       </div>
 
-      <div class="method">
-        <input type="radio" name="payment"> Credit / Debit Card
-      </div>
+      <!--payment method-->
+      <div class="card">
+        <h3>Select Payment Method</h3>
 
-      <div class="method">
-        <input type="radio" name="payment"> Cash on Delivery
-      </div>
-
-      <!-- Card Details -->
-      <div style="margin-top:20px;">
-        <div class="form-group">
-          <label>Card Number</label>
-          <input type="text" placeholder="1234 5678 9012 3456">
+        <div class="method">
+          <input type="radio" name="payment" checked> UPI
         </div>
 
-        <div class="form-group">
-          <label>Card Holder Name</label>
-          <input type="text" placeholder="Your Name">
+        <div class="method">
+          <input type="radio" name="payment"> Credit / Debit Card
         </div>
 
-        <div style="display:flex; gap:15px;">
-          <div class="form-group" style="flex:1;">
-            <label>Expiry</label>
-            <input type="text" placeholder="MM/YY">
+        <div class="method">
+          <input type="radio" name="payment">Cash on Delivery
+        </div>
+
+        <!--Card Details-->
+        <div style="margin-top:20px;">
+          <div class="form-group">
+            <label>Card Number</label>
+            <input type="text" placeholder="1234 567890123456">
           </div>
 
-          <div class="form-group" style="flex:1;">
-            <label>CVV</label>
-            <input type="password" placeholder="123">
+          <div class="form-group">
+            <label>Card Holder Name</label>
+            <input type="text" placeholder="Your Name">
+          </div>
+
+          <div style="display:flex; gap:15px;">
+            <div class="form-group" style="flex: 1;">
+              <label>Expiry</label>
+              <input type="text" placeholder="MM/YY">
+            </div>
+
+            <div class="form-group" style="flex:1">
+              <label>CVV</label>
+              <input type="password" placeholder="123">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Right Summary-->
+    <div class="summary">
+      <h2>Order Summary</h2>
+
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span>797</span>
+      </div>
+
+      <div class="summary-row">
+        <span>Delivery Fee</span>
+        <span>40</span>
+      </div>
+
+      <div class="summary-row">
+        <span>GST</span>
+        <span>35</span>
+      </div>
+
+      <hr>
+      <div class="summary-row total">
+        <span>Total</span>
+        <span>872</span>
+      </div>
+
+      <button class="pay-btn">Pay 872</button>
+    </div>
+  </div>
+
+  <!--Header-->
+  <div class="header">
+    <div class="logo">Swiggy</div>
+    <div class="logout">Logout</div>
+  </div>
+
+  <div class="container">
+    <div class="left">
+
+      <!--Profile Overview-->
+      <div class="card">
+        <div class="profile-overview">
+          <img src="https://i.pravatar.cc/150?img=3" alt="Profile">
+          <div>
+            <div class="profile-name">Deepak Gupta</div>
+            <div class="profile-email">deepakgupta@gmail.com</div>
           </div>
         </div>
       </div>
 
-    </div>
+      <!--Personal Info View-->
+      <div class="card">
+        <h3>Personal Information</h3>
 
-  </div>
+        <div class="info-row">
+          <span>Full Name</span>
+          <span>Deepak Gupta</span>
+        </div>
 
-  <!-- Right Summary -->
-  <div class="summary">
-    <h2>Order Summary</h2>
+        <div class="info-row">
+          <span>Phone</span>
+          <span>9628105699</span>
+        </div>
 
-    <div class="summary-row">
-      <span>Subtotal</span>
-      <span>₹797</span>
-    </div>
+        <div class="info-row">
+          <span>Email</span>
+          <span>deepakgupta@gmail.com</span>
+        </div>
 
-    <div class="summary-row">
-      <span>Delivery Fee</span>
-      <span>₹40</span>
-    </div>
+        <button class="edit-btn">Edit Profile</button>
+      </div>
 
-    <div class="summary-row">
-      <span>GST</span>
-      <span>₹35</span>
-    </div>
+      <!--Edit Profile Form-->
+      <div class="card">
+        <h3>Edit Profile</h3>
 
-    <hr>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" value="Deepak Gupta">
+        </div>
 
-    <div class="summary-row total">
-      <span>Total</span>
-      <span>₹872</span>
-    </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="text" value="9628105699">
+        </div>
 
-    <button class="pay-btn">Pay ₹872</button>
-  </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" value="deepakgupta@gmail.com">
+        </div>
 
-</div>
-<!-- Header -->
-<div class="header">
-  <div class="logo">Swiggy</div>
-  <div class="logout">Logout</div>
-</div>
+        <button class="save-btn">Save Change</button>
+      </div>
 
-<div class="container">
+      <!--Saved Addresses-->
+      <div class="card">
+        <h3>Saved Addresses</h3>
 
-  <div class="left">
+        <div class="address-box">Baluahi dhus Mathaniya maharajganj UP<br>Pin: 273302</div>
 
-    <!-- Profile Overview -->
-    <div class="card">
-      <div class="profile-overview">
-        <img src="https://i.pravatar.cc/150?img=3" alt="Profile">
-        <div>
-          <div class="profile-name">Deepak Gupta</div>
-          <div class="profile-email">deepakgupta@email.com</div>
+        <div class="address-box">
+          Baluahi dhus maharajganj UP <br> pin: 273302
         </div>
       </div>
     </div>
-
-    <!-- Personal Info View -->
-    <div class="card">
-      <h3>Personal Information</h3>
-
-      <div class="info-row">
-        <span>Full Name</span>
-        <span>Deepak Gupta</span>
-      </div>
-
-      <div class="info-row">
-        <span>Phone</span>
-        <span>9628105699</span>
-      </div>
-
-      <div class="info-row">
-        <span>Email</span>
-        <span>deepakgupta@email.com</span>
-      </div>
-
-      <button class="edit-btn">Edit Profile</button>
-    </div>
-
-    <!-- Edit Profile Form -->
-    <div class="card">
-      <h3>Edit Profile</h3>
-
-      <div class="form-group">
-        <label>Full Name</label>
-        <input type="text" value="Deepak Gupta">
-      </div>
-
-      <div class="form-group">
-        <label>Phone</label>
-        <input type="text" value="9628105699">
-      </div>
-
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" value="deepakgupta@email.com">
-      </div>
-
-      <button class="save-btn">Save Changes</button>
-    </div>
-
-    <!-- Saved Addresses -->
-    <div class="card">
-      <h3>Saved Addresses</h3>
-
-      <div class="address-box">
-        Baluahi dhus maharajganj UP<br>
-        Uttar Pradesh -273302
-      </div>
-
-      <div class="address-box">
-        Baluahi dhus maharajganj UP<br>
-        Uttar Pradesh - 273302
-      </div>
-
-    </div>
-
   </div>
-
-</div>
-
 </body>
 </html>
