@@ -1,40 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <title>Level - Hotel Booking</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+      background: white;
+
+    }
+    .navbar{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      background: #f5f5f5;
+    }
+    .logo{
+      font-size: 22px;
+      font-weight: bold;
+
+    }
+    .logo span{
+      margin-left: 5px;
+    }
+    nav a {
+      text-decoration: none;
+      margin-left: 25px;
+      color: #333;
+      padding: 12px 20px;
+    }
+    nav a.active{
+      /* background: #e74c3c; */
+      /* color: #fff; */
+    }
+    .hero{
+      height: 90vh;
+      background: url("bg-img-1.jpg");
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .search-box{
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      width: 80%;
+      max-width: 1000px;
+    }
+    .row{
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    input, select{
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ccc;
+    }
+    button{
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+    }
+    button:hover{
+      background: #c0392b;
+    }
+    .info{
+      font-size: 14px;
+      color: #555;
+    }
+    .info span{
+      float: right;
+      color: #e74c3c;
+      cursor: pointer;
+    }
+    .help-section{
+      background: #e74c3c;
+      padding: 80px 0 120px;
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+    .help-section::after{
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: white;
+      clip-path: polygon(0 0, 100% 0, 100% 60%,  50% 100%, 0 60%);
+    }
+    .help-content h1{
+      font-size: 42px;
+      margin-bottom: 15px;
+      font-weight: 300;
+    }
+    .help-content p{
+      font-size: 16px;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+    .help-content button{
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      padding: 12px 30px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .help-content button:hover{
+      background: white;
+      color: #e74c3c;
+    }
+    .info-section{
+      display: flex;
+      justify-content: space-around;
+      padding: 80px 60px;
+      background: #f9f9f9;
+      text-align: center;
+    }
+    .info-box{
+      width: 30%;
+    }
+    .icon{
+      font-size: 60px;
+      color: #e74c3c;
+      margin-bottom: 20px;
+    }
+    /* .info-box h3{
+      color: #e74c3c;
+      font-size: 20px;
+      margin-bottom: 15px;
+      font-weight: normal;
+    } */
+    .info-box h3{
+      color: #e74c3c;
+      font-size: 20px;
+      margin-bottom: 15px;
+      font-weight: normal;
+    }
+    .info-box p{
+      font-size: 14px;
+      color: #777;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .info-box a {
+      font-size: 13px;
+      color: #e74c3c;
+      text-decoration: none;
+    }
+    .info-box a:hover{
+      text-decoration: underline;
+    }
+    .portfolio-section{
+      display: flex;
+      gap: 40px;
+      padding: 60px;
+      background: #f7f7f7;
+    }
+    .portfolio-content{
+      display: flex;
+      gap: 30px;
+      width: 70%;
+    }
+    .card{
+      width: 50%;
+      background: white;
+      padding: 20px;
+    }
+    .card img{
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card h3{
+      margin: 15px 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .card p{
+      font-size: 14px;
+      color: #777;
+      line-height: 1.6;
+    }
+    .card button{
+      margin-top: 20px;
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      cursor: pointer;
+    }
+
+    .card button:hover{
+      background: #c0392b;
+    }
+
+    .sidebar{
+      width: 30%;
+    }
+
+    .sidebar-title{
+      background: #e74c3c;
+      color: white;
+      padding: 20px;
+    }
+    .sidebar-title p{
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    .place{
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .place img{
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+    }
+
+    .place span{
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .dots{
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 40px 0;
+    }
+
+    .dot{
+      width: 10px;
+      height: 10px;
+      background: #cfcfcf;
+      border-radius: 50%;
+    }
+    .dot.active{
+      background: #333;
+    }
+    .video-section{
+      width: 100%;
+      height: 70vh;
+      background: url("images/video-bg.jpg") 
+      no-repeat center/cover;
+      position: relative;
+    }
+    .video-overlay{
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .play-btn{
+      width: 70px;
+      height: 70px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .play-btn:hover{
+      background: white;
+    }
+
+    /* *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    } */
+
+    body{
+      background: #f7f7f7;
+    }
+
+    .blog-wrapper{
+      display: flex;
+      gap: 80px;
+      padding: 80px;
+      background: #FFFFFF;
+    }
+
+    .left-text h1{
+      font-size: 60px;
+      color: #ffffff;
+    }
+
+    .left-text p{
+      font-size: 26px;
+      color: #c0392b;
+      margin-top: 10px;
+    }
+
+    .right-blog{
+      flex: 1;
+    }
+
+    .blog-box{
+      display: flex;
+      gap: 30px;
+      margin-bottom: 70px;
+    }
+
+    .blog-box img{
+      width: 260px;
+      height: auto;
+    }
+
+    .blog-content h3{
+      color: #c0392b;
+      margin-bottom: 15px;
+    }
+
+    .blog-content p{
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .blog-content a{
+      color: #c0392b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    } */
+    body{
+      background: #222;
+    }
+
+    .contact-section{
+      display: flex;
+      width: 100%;
+      height: 600px;
+    }
+
+    .map{
+      flex: 1;
+    }
+
+    .map iframe{
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .contact-form{
+      flex: 1;
+      background: #f2f2f2;
+      padding: 60px;
+    }
+    .contact-form form{
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+    }
+    .contact-form input, .contact-form textarea{
+      border: none;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 5px;
+      background: transparent;
+      font-size: 14px;
+    }
+    .contact-form button{
+      background: #e74c5b;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover{
+      background: #d63c4a;
+    }
+
+    @media(max-width: 768px){
+      .map, contact-form{
+        height: 600px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <!--Navbar-->
+  <header class="navabr">
+    <div class="logo"><img src="https://images.vexels.com/media/users/3/189892/isolated/preview/d9fa2acbe02a3449880d1a13b3fdf2ed-simple-christmas-tree.png" style="height: 25px; width: 35px;">
+      <span>Level</span>
 
-  <!-- ===== NAVBAR ===== -->
-  <header class="navbar">
-    <div class="logo">
-      🌲 <span>Level</span>
     </div>
-
     <nav>
       <a href="#" class="active">Home</a>
       <a href="#">Portfolio</a>
-      <a href="#">Blog Entries</a>
+      <a href="#">Blog Entries</a> 
       <a href="#">Contact Us</a>
-    
     </nav>
     <div id="see">
       <span class="material-symbols-outlined">
         menu
       </span>
-      </div>
+    </div>
   </header>
 
-  <!-- ===== HERO SECTION ===== -->
+  <!--Hero section-->
   <section class="hero">
     <div class="search-box">
-
       <div class="row">
         <input type="text" placeholder="Type your destination...">
         <input type="date">
@@ -60,19 +457,18 @@
           <option>2 Room</option>
         </select>
 
-        <button>Check Availability</button>
+        <button>Check Available</button>
       </div>
 
       <p class="info">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium facere assumenda molestias esse iure ab illum nesciunt architecto dolorem libero!
         <span>Need Help?</span>
       </p>
-
     </div>
-    <!-- ===== HELP SECTION ===== -->
 
+    <!--Help selection-->
   </section>
-  <!-- ===== HELP SECTION ===== -->
+  <!--help selection-->
   <section class="help-section">
     <div class="help-content">
       <h1>We are here to help you?</h1>
@@ -81,175 +477,158 @@
     </div>
   </section>
 
-  <!-- ===== INFO SECTION ===== -->
+  <!--INFO SECTION-->
   <section class="info-section">
-
     <div class="info-box">
-      <div class="icon">🔨</div>
+      <div class="icon"><img src="https://png.pngtree.com/element_our/20190528/ourmid/pngtree-tool-horn-hammer-hammer-image_1161232.jpg" style="width: 25px; height: 30px;"></div>
       <h3>Level HTML Template by<br>Tooplate website</h3>
       <p>
-        You are allowed to download, edit and use this template for your
-        business or client websites.
+        You are allowed to download, edit and use this template for your business
+        or client websites.
       </p>
       <a href="#">CONTINUE READING...</a>
     </div>
 
     <div class="info-box">
-      <div class="icon">✈️</div>
+      <div class="icon"><img src="https://images.vexels.com/media/users/3/153005/isolated/preview/b3c3b1a530afa43f61cf4207c75cc6e0-airplane-colored-stroke-icon.png" style="width: 25px; height: 30px;"></div>
       <h3>Original Website Template<br>Producer</h3>
       <p>
-        You are NOT allowed to re-distribute the downloadable template ZIP
-        file on any website.
+        You are Not allowed to re-distributes 
+        the downloadable template ZIP file on any webiste
       </p>
       <a href="#">CONTINUE READING...</a>
     </div>
 
     <div class="info-box">
-      <div class="icon">🛟</div>
-      <h3>Contact us if you have any<br>question</h3>
+      <div class="icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJDIFA1lPYz5KSZ6u8WOxb5WGCbVJ6NpNucQ&s" style="width: 60px; height: 40px;"></div>
+      <h3>Contact us if you have any <br> question</h3>
       <p>
-        If you see this template being distributed on any other site,
-        that is an illegal copy.
+        If you see this template being distributed on any other
+        site, that is an illegal copy.
       </p>
       <a href="#">CONTINUE READING...</a>
     </div>
-
   </section>
 
-  <!-- ===== PORTFOLIO SECTION ===== -->
+  <!--PORTFOLIO SECTION-->
   <section class="portfolio-section">
-
-    <!-- LEFT CONTENT -->
-    <div class="portfolio-content">
-
-      <div class="card">
-        <img src="images/pic1.jpg" alt="">
-        <h3>NUNC IN FELIS ALIQUET METUS LUCTUS IACULIS</h3>
-        <p>
-          Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla.
-          Nullam sollicitudin at augue venenatis eleifend.
-        </p>
-        <button>GET MORE INFO.</button>
-      </div>
-
-      <div class="card">
-        <img src="images/pic2.jpg" alt="">
-        <h3>SED CURSUS DICTUM NUNC QUIS MOLESTIE</h3>
-        <p>
-          Pellentesque quis dui sit amet purus scelerisque eleifend.
-          Sed nec ex eu ex tincidunt iaculis.
-        </p>
-        <button>VIEW DETAIL</button>
-      </div>
-
+  <div class="portfolio-content">
+    <div class="card">
+      <img src="images/pic1.jpg" alt="">
+      <h3>NUNC IN FELIS ALIQUET METUS LUCTUS IACULIS</h3>
+      <p>Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla.
+        Nullam sollicitudin at augue venematis eleifend.
+      </p>
+      <button>GET MORE INFO.</button>
     </div>
-
-    <!-- RIGHT SIDEBAR -->
-    <aside class="sidebar">
-      <div class="sidebar-title">
-        <h4>Recommended Places</h4>
-        <p>Enamel pin cliche tilde, kitsch and VHS thundercats</p>
-      </div>
-
-      <div class="place">
-        <img src="images/europe.jpg">
-        <span>EUROPE</span>
-      </div>
-
-      <div class="place">
-        <img src="images/asia.jpg">
-        <span>ASIA</span>
-      </div>
-
-      <div class="place">
-        <img src="images/africa.jpg">
-        <span>AFRICA</span>
-      </div>
-
-      <div class="place">
-        <img src="images/south.jpg">
-        <span>SOUTH AMERICA</span>
-      </div>
-    </aside>
-
-
-  </section>
-  <div class="dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
+    <div class="card">
+      <img src="images/pic2.jpg" alt="">
+      <h3>SED CURSUS DICTUM NUNC QUIS MOLESTIE</h3>
+      <p>Pellentesque quis dui sit amet puru scelerisque eleifend.
+        Sed nec ex eu ex tincidunt iaculis.
+      </p>
+      <button>VIEW DETAIL</button>
+    </div>
   </div>
 
-  <!-- ===== VIDEO HERO SECTION ===== -->
-  <section class="video-section">
-
-    <!-- background image (video look) -->
-    <div class="video-overlay">
-      <div class="play-btn">
-        ▶
-      </div>
+  <!--Right sidebar-->
+  <aside class="sidebar">
+    <div class="sidebar-title">
+      <h4>Recommended Places</h4>
+      <p>Enamel pin cliche tilde, kitschar and VHS thundercats</p>
     </div>
 
-  </section>
-
-  <section class="blog-wrapper">
-
-    <!-- LEFT SIDE -->
-    <div class="left-text">
-      <h1>ASIA</h1>
-      <p>Singapore</p>
+    <div class="place">
+      <img src="images/europe.jpg">
+      <span>EUROPE</span>
     </div>
 
-    <!-- RIGHT SIDE -->
-    <div class="right-blog">
-
-      <!-- BLOG 1 -->
-      <div class="blog-box">
-        <img src="images/img1.jpg" alt="">
-        <div class="blog-content">
-          <h3>Suspendisse vel est libero sem phasellus ac laoreet</h3>
-          <p>Vivamus eget tellus ornare, sollicitudin quam id, dictum nulla.</p>
-          <p>Phasellus finibus rhoncus justo, tempus eleifend neque dictum ac.</p>
-          <p>Aenean metus leo, consectetur non.</p>
-          <p>Etiam aliquam arcu at mauris consectetur scelerisque.</p>
-          <p>Duis scelerisque metus vel felis porttitor gravida.</p>
-        </div>
-      </div>
-
-      <!-- BLOG 2 -->
-      <div class="blog-box">
-        <img src="images/img2.jpg" alt="">
-        <div class="blog-content">
-          <h3>Suspendisse vel est libero sem phasellus ac laoreet</h3>
-          <p>Duis accumsan sagittis tortor in ultrices.</p>
-          <p>Praesent tortor ante, fringilla ac nibh porttitor.</p>
-          <a href="#">CONTINUE READING...</a>
-        </div>
-      </div>
+    <div class="place">
+      <img src="images/asia.jpg">
+      <span>ASIA</span>
 
     </div>
-  </section>
-  <!-- LEFT MAP -->
-  <div class="map">
-    <iframe src="https://www.google.com/maps?q=Barra%20da%20Tijuca&output=embed" allowfullscreen="" loading="lazy">
-    </iframe>
+
+    <div class="place">
+      <img src="images/africa.jpg">
+      <span>AFRICA</span>
+    </div>
+
+    <div class="place">
+      <img src="images/south.jpg">
+      <span>SOUTH AFRICA</span>
+    </div>
+  </aside>
+</section>
+
+<div class="dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<!--video hero section-->
+<section class="video-section">
+  <!--background image(video look)-->
+  <div class="video-overlay">
+    <div class="play-btn"><img src="https://static.vecteezy.com/system/resources/thumbnails/035/753/221/small/video-play-button-icon-for-graphic-design-logo-web-site-social-media-mobile-app-ui-illustration-png.png" style="width: 30px; height: 30px;"></div>
+
+  </div>
+</section>
+
+<section class="blog-wrapper">
+  <!--LEFT SIDE-->
+  <div class="left-text">
+    <h1>ASIA</h1>
+    <p>Singapore</p>
   </div>
 
-  <!-- RIGHT FORM -->
-  <div class="contact-form">
-    <form>
-      <input type="text" placeholder="Name">
-      <input type="email" placeholder="Email">
-      <input type="text" placeholder="Subject">
-      <textarea placeholder="Message"></textarea>
-      <button>SEND MESSAGE NOW</button>
-    </form>
+  <!--RIGHT SIDE-->
+  <div class="right-blog">
+
+    <!--BLOG 1-->
+    <div class="blog-box">
+      <img src="images/img1.jpg" alt="">
+      <div class="blog-content">
+        <h3>Suspendisse vel est libero semphasellus ac loareet</h3>
+        <p>Vivamus eget tellus ornare, sollicitudin quam id, dictum nulla.</p>
+        <p>Aenean metus leo, consectetur non.</p>
+        <p>Etiam aliquam arcu at mauris consectetur scelerisque.</p>
+        <p>Duis scelerisque metus vel felis porttitor gravida.</p>
+      </div>
+    </div>
+
+    <!--BLOG 2-->
+    <div class="blog-box">
+      <img src="images/img2.jpg" alt="">
+      <div class="blog-content">
+        <h3>Suspendisse vel est libero sem phasellus ac laoreet</h3>
+        <p>Duis accumsan sagittis tortor in ultrices.</p>
+        <p>Praesent tortor ante, fringilla ac nibh porttitor.</p>
+        <a href="#">CONTINUE READING...</a>
+      </div>
+    </div>
   </div>
+</section>
 
-  </section>
+<!--LEFT MAP-->
+<div class="map">
+  <iframe src="https://www.google.com/maps?q=Barra%20Tijuca&output=embed" allowfullscreen="" loading="lazy"></iframe>
 
+</div>
+
+<!--Right form-->
+<div class="contact-form">
+  <form>
+    <input type="text" placeholder="Name">
+    <input type="text" placeholder="Email">
+    <input type="text" placeholder="Subject">
+    <textarea placeholder="Message"></textarea>
+    <button>SEND MESSAGE NOW</button>
+  </form>
+</div>
+</section>
 </body>
-
 </html>
